@@ -276,13 +276,13 @@ export default function Game() {
   function checkLoss() {
     if (cubes.some((cube) => cube.indexOf(null) != -1)) return false;
 
-    const stock = (a) => JSON.stringify(a) === JSON.stringify(cubes);
+    const isStuck = (a) => JSON.stringify(a) === JSON.stringify(cubes);
 
     return (
-      stock(moveDown()) &&
-      stock(moveLeft()) &&
-      stock(moveRight()) &&
-      stock(moveUp())
+      isStuck(moveDown()) &&
+      isStuck(moveLeft()) &&
+      isStuck(moveRight()) &&
+      isStuck(moveUp())
     );
   }
 
